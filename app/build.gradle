@@ -1,0 +1,67 @@
+apply plugin: 'com.android.application'
+apply from: 'keystore.gradle'
+
+android {
+    compileSdkVersion 23
+    buildToolsVersion "24.0.0 rc2"
+
+    defaultConfig {
+        applicationId "com.concolabs.fromthetower"
+        minSdkVersion 15
+        targetSdkVersion 23
+        versionCode 1
+        versionName "1.0"
+    }
+    lintOptions {
+        checkReleaseBuilds false
+        // Or, if you prefer, you can continue to check for errors in release builds,
+        // but continue the build even when errors are found:
+        abortOnError false
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+
+        debug {
+            signingConfig null
+        }
+    }
+
+    signingConfigs {
+        stage {
+            keyAlias 'fromthetower'
+            keyPassword 'fromthetower'
+            storeFile file('./keystores/android.jks')
+            storePassword 'fromthetower'
+        }
+        production {
+            keyAlias key_alias
+            keyPassword key_password
+            storeFile file('./keystores/keyProd.jks')
+            storePassword store_password
+        }
+    }
+
+    productFlavors {
+        stage {
+            signingConfig signingConfigs.stage
+            applicationId defaultConfig.applicationId + ".stage"
+            versionName defaultConfig.versionName + "-stage"
+            resValue "string", "app_name", "[Stage] From The Tower"
+        }
+
+        production {
+            signingConfig signingConfigs.production
+            resValue "string", "app_name", "From The Tower"
+        }
+    }
+
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    testCompile 'junit:junit:4.12'
+    compile 'com.android.support:appcompat-v7:23.3.0'
+}

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:conco="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/purple_50"
+    android:orientation="vertical"
+    >
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.7"
+        >
+
+        <ImageView
+            android:id="@+id/fragment_ftt_press_me"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="40dp"
+            android:layout_gravity="center"
+            android:src="@drawable/press_me"
+            />
+
+        <ImageView
+            android:id="@+id/fragment_ftt_entrance"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:layout_gravity="center"
+            android:visibility="gone"
+            android:src="@drawable/ftt1"
+            />
+
+        <com.concolabs.fromthetower.view.GifView
+            android:id="@+id/fragment_ftt_lights"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="top|left"
+            android:visibility="gone"
+            conco:src="@drawable/lights"
+            />
+
+        <com.concolabs.fromthetower.view.GifView
+            android:id="@+id/fragment_ftt_mirror_ball"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_gravity="top|right"
+            android:layout_margin="35dp"
+            android:visibility="gone"
+            conco:src="@drawable/mirror_ball"
+            />
+
+        <com.concolabs.fromthetower.view.GifView
+            android:id="@+id/fragment_ftt_dance"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:visibility="gone"
+            conco:src="@drawable/ftt"
+            />
+    </FrameLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.3"
+        >
+
+        <ImageView
+            android:id="@+id/fragment_ftt_button"
+            android:layout_width="140dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:src="@drawable/button"
+            />
+
+        <ImageView
+            android:id="@+id/fragment_ftt_button_pressed"
+            android:layout_width="140dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:src="@drawable/button_pressed"
+            android:visibility="gone"
+            />
+    </FrameLayout>
+</LinearLayout>
